@@ -24,6 +24,7 @@ sp = "Split"
 stand = Hash.new(s)
 hit = Hash.new(h)
 doublehit = Hash.new(dh)
+double_st = Hash.new(ds)
 hard = { 5=> hit,
         6=> hit,
         7=> hit,
@@ -42,6 +43,20 @@ hard = { 5=> hit,
         20=> stand,
         21=> stand,
        }
+
+  soft = { 13=> hit.merge({4=>dh, 5=>dh, 6=>dh}),
+         14=> hit.merge({4=>dh, 5=>dh, 6=>dh}),
+         15=> hit.merge({4=>dh, 5=>dh, 6=>dh}),
+         16=> hit.merge({4=>dh, 5=>dh, 6=>dh}),
+         17=> doublehit.merge({7=>h, 8=>h, 9=>h, 10=>h, "A"=>h}),
+         18=> double_st.merge({2=>s, 7=>s, 8=>s, "A"=>s, 9=>h, 10=>h})
+         19=> stand.merge({6=>ds}),
+         20=> stand,
+         21=> stand,
+        }
+
+
+
 
 # puts "#{hard[sum]sum[0]}"
 puts hard[sum][dealer_card]
